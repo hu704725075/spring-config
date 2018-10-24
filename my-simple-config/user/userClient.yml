@@ -1,1 +1,25 @@
+server:
+  port: 8805
 
+spring:
+    application:
+        name: user-consumer
+    datasource:
+        name: test
+        url: jdbc:mysql://192.168.200.25:3306/royyun_gs?useSSL=false
+        username: root
+        password: Admin_123
+        driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.cloud.user.pojo
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8801/eureka/
