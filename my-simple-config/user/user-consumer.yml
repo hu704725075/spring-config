@@ -23,3 +23,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8801/eureka/
+name: lisi
+age: 18
+version: dev
