@@ -1,0 +1,56 @@
+#注册中心
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://127.0.0.1:1111/eureka/
+  instance:
+    preferIpAddress: true
+    ipAddress: ${spring.cloud.client.ipAddress}
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+    hostname: ${spring.cloud.client.ipAddress}
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/healthcare?chatset=utf-8&allowMultiQueries=true
+    username: root
+    password: e23bf56dbd48cc4d952f36db063e9b5d
+    driverClassName: com.mysql.jdbc.Driver
+    validationQuery: SELECT 1
+    initialSize: 1
+    maxActive: 20
+    minIdle: 1
+    maxWait: 60000
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 25200000
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+    filters: stat,wall,slf4j
+
+redis:
+    host: localhost #服务器地址
+    port: 6379
+    password: redis
+    maxInst: 3000 #最大实例个数
+    maxIdle: 500
+    maxWait: 3000
+    expireTime: 36000
+    establishConnTimeout: 3000 #服务器建立连接超时时间
+    database: 30
+aliyun:
+  oss:
+    accessKeyId: LTAIrapFdD4CHY56
+    accessKeySecret: B5jbORPF6QTzrignvHVHdxb4UVlt6Q
+    bucketName: za-pub-cmis-new
+    endpoint: oss-cn-shanghai.aliyuncs.com
+  ons:
+    AccessKey: LTAIxBCdVWXcadpY
+    SecretKey: z92080mXwUEqaIg5zoCV8Lch3tOhta
+    ONSAddr: http://onsaddr-internal.aliyun.com:8080/rocketmq/nsaddr4client-internal
+    to:
+      Topic: D-HENGQIN-MARKET-HENGQIN-FACE-171110
+      ProducerId: PID-D-HENGQIN-MARKET-HENGQIN-FACE-171110
